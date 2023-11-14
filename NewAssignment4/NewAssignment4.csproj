@@ -187,6 +187,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Logon.aspx" />
+    <Content Include="MyAdministrators\AdministratorPage.aspx" />
+    <Content Include="MyInstructors\InstructorPage.aspx" />
     <Content Include="MyMembers\MemberPage.aspx" />
     <Content Include="obj\Debug\NewAssignment4.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\NewAssignment4.dll" />
@@ -605,6 +607,20 @@
     </Compile>
     <Compile Include="Logon.aspx.designer.cs">
       <DependentUpon>Logon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyAdministrators\AdministratorPage.aspx.cs">
+      <DependentUpon>AdministratorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAdministrators\AdministratorPage.aspx.designer.cs">
+      <DependentUpon>AdministratorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyInstructors\InstructorPage.aspx.cs">
+      <DependentUpon>InstructorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyInstructors\InstructorPage.aspx.designer.cs">
+      <DependentUpon>InstructorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyMembers\MemberPage.aspx.cs">
       <DependentUpon>MemberPage.aspx</DependentUpon>
