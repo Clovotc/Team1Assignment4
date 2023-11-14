@@ -50,11 +50,6 @@ C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\bin\roslyn\v
 C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\bin\roslyn\vbc.rsp
 C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\bin\roslyn\VBCSCompiler.exe
 C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\bin\System.Web.Optimization.xml
-C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\bin\Newtonsoft.Json.xml
-C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\bin\Antlr3.Runtime.pdb
-C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\bin\Microsoft.AspNet.FriendlyUrls.xml
-C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\obj\Debug\NewAssignment4.csproj.AssemblyReference.cache
 C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\obj\Debug\NewAssignment4.csproj.CoreCompileInputs.cache
 C:\Users\maiso\source\repos\Clovotc\Team1Assignment4\NewAssignment4\obj\Debug\NewAssignment4.csproj.CopyComplete
