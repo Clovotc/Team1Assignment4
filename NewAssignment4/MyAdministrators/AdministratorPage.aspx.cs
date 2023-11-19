@@ -55,11 +55,19 @@ namespace NewAssignment4.MyAdministrators
 
         protected void btnAddMember_Click(object sender, EventArgs e)
         {
+            string firstName = txtFirstName.Text.Trim();
+            string lastName = txtLastName.Text.Trim();
+            string phoneNumber = txtPhoneNumber.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string dateJoined = txtDateJoined.Text.Trim();
 
         }
 
         protected void btnAddInstructor_Click(object sender, EventArgs e)
         {
+            string firstName = txtFirstName.Text.Trim();
+            string lastName = txtLastName.Text.Trim();
+            string phoneNumber = txtPhoneNumber.Text.Trim();
 
         }
     }
