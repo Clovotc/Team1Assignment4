@@ -250,6 +250,9 @@
     <None Include="Karate.dbml.layout">
       <DependentUpon>Karate.dbml</DependentUpon>
     </None>
+    <Content Include="MyAdministrators\Web.config" />
+    <Content Include="MyInstructors\Web.config" />
+    <Content Include="MyMembers\Web.config" />
     <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
