@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\NewAssignment4",
+    "\\NewAssignment4\\MyAdministrators"
   ],
-  "SelectedNode": "\\NewAssignment4.sln",
+  "SelectedNode": "\\NewAssignment4\\MyAdministrators\\AdministratorPage.aspx",
   "PreviewInSolutionExplorer": false
 }
