@@ -112,7 +112,7 @@
                 <td style="height: 262px; width: 386px">
                     <asp:Label ID="Label14" runat="server" Text="Section Name:"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:DropDownList ID="sectionDropDown" runat="server" OnSelectedIndexChanged="sectionDropDown_SelectedIndexChanged">
+                    <asp:DropDownList ID="sectionDropDown" runat="server" OnSelectedIndexChanged="sectionDropDown_SelectedIndexChanged" AutoPostBack="True">
                         <asp:ListItem>Karate Age-Uke</asp:ListItem>
                         <asp:ListItem>Karate Chudan-Uke</asp:ListItem>
                     </asp:DropDownList>
