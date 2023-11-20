@@ -4,6 +4,9 @@
     Hi,
     <asp:LoginName ID="LoginName1" runat="server" />
 </p>
+    <p>
+        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+</p>
 <p>
     <br />
     <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
@@ -18,12 +21,6 @@
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
 </p>
-<p>
-</p>
     <p>
-</p>
-    <p>
-</p>
-<p>
-</p>
+        &nbsp;</p>
 </asp:Content>

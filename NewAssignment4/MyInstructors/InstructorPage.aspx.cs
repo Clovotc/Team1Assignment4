@@ -16,6 +16,8 @@ namespace NewAssignment4.MyInstructors
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            RefreshData();
+
             if (Session.Count != 0)
             {
                 if (HttpContext.Current.Session["userType"].ToString().Trim().ToLower() == "member" ||
@@ -29,6 +31,15 @@ namespace NewAssignment4.MyInstructors
                     Response.Redirect("Logon.aspx", true);
                 }
             }
+        }
+        private void RefreshData()
+        {
+            dbcon = new KarateDataContext(conn);
+
+            var result = from x in dbcon.Sections where x.Instructor_ID == Convert.ToInt32(HttpContext.Current.Session["UserID"]) select x;// need to edit this to make it the logged in memeber only.
+
+            GridView1.DataSource = result;
+            GridView1.DataBind();
         }
     }
 }
