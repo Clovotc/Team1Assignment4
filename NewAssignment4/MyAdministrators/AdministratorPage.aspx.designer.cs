@@ -177,6 +177,24 @@ namespace NewAssignment4.MyAdministrators
         protected global::System.Web.UI.WebControls.Button btnAddMember;
 
         /// <summary>
+        /// btnDeleteMember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteMember;
+
+        /// <summary>
+        /// lblDeletedMember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeletedMember;
+
+        /// <summary>
         /// Label9 control.
         /// </summary>
         /// <remarks>
@@ -274,6 +292,24 @@ namespace NewAssignment4.MyAdministrators
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddInstructor;
+
+        /// <summary>
+        /// btnDeleteInstructor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteInstructor;
+
+        /// <summary>
+        /// lblDeletedInstructor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeletedInstructor;
 
         /// <summary>
         /// Label14 control.
