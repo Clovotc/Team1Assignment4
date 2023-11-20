@@ -210,5 +210,15 @@ namespace NewAssignment4.MyAdministrators
             txtInstructorUserName.Text = "";
             txtInstructorPassword.Text = "";
         }
+
+        protected void btnAddSection_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ()
+        }
     }
 }
