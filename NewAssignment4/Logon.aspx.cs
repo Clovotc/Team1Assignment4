@@ -30,9 +30,10 @@ namespace NewAssignment4
 
             // Search for the current User, validate UserName and Password
             NetUser myUser = (from x in dbcon.NetUsers
-                                    where x.UserName == HttpContext.Current.Session["nUserName"].ToString()
-                                    && x.UserPassword == HttpContext.Current.Session["uPass"].ToString()
-                                    select x).First();
+                              where x.UserName == HttpContext.Current.Session["nUserName"].ToString()
+                              && x.UserPassword == HttpContext.Current.Session["uPass"].ToString()
+                              select x).First();
+
 
             if (myUser != null)
             {

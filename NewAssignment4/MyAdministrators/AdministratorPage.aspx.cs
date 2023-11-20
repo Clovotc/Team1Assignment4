@@ -27,7 +27,12 @@ namespace NewAssignment4.MyAdministrators
         {
             dbconn = new KarateDataContext(conn);
             //LINQ
-            var result = from x in dbconn.Members select x;
+            var result = from x in dbconn.Members 
+                         select new 
+                         { x.MemberFirstName, 
+                           x.MemberLastName, 
+                           x.MemberPhoneNumber, 
+                           x.MemberDateJoined };
             //Show data in gridview
             memberGridView.DataSource = result;
             memberGridView.DataBind();
@@ -37,7 +42,7 @@ namespace NewAssignment4.MyAdministrators
         {
             dbconn = new KarateDataContext(conn);
             //LINQ
-            var result = from x in dbconn.Instructors select x;
+            var result = from x in dbconn.Instructors select new { x.InstructorFirstName, x.InstructorLastName };
             //Show data in gridview
             instructorGridView.DataSource = result;
             instructorGridView.DataBind();
