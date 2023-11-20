@@ -253,13 +253,21 @@ namespace NewAssignment4.MyAdministrators
                 }
                 else
                 {
-                    lblDeletedMember.Text = "Could not find member";
+                    lblDeletedMember.Text = "Could not find member or member first name not filled out";
                     return;
                 }
             }
+            
+            // Clear textboxes
+            lblDeletedMember.Text = "Member has been deleted";
+            txtMemberFirstName.Text = "";
+            txtMemberLastName.Text = "";
+            txtMemberPhoneNumber.Text = "";
+            txtMemberEmail.Text = "";
+            txtMemberUserName.Text = "";
+            txtMemberPassword.Text = "";
 
             // Refresh GridView
-            lblDeletedMember.Text = "Member has been deleted";
             RefreshMembers();
         }
 
@@ -291,13 +299,20 @@ namespace NewAssignment4.MyAdministrators
                 }
                 else
                 {
-                    lblDeletedInstructor.Text = "Could not find instructor";
+                    lblDeletedInstructor.Text = "Could not find instructor or instructor first name not filled out";
                     return;
                 }
             }
 
-            // Refresh GridView
+            // Clear textboxes
             lblDeletedInstructor.Text = "Instructor has been deleted";
+            txtInstructorFirstName.Text = "";
+            txtInstructorLastName.Text = "";
+            txtInstructorPhoneNumber.Text = "";
+            txtInstructorUserName.Text = "";
+            txtInstructorPassword.Text = "";
+
+            // Refresh GridView
             RefreshInstructors();
         }
     }
