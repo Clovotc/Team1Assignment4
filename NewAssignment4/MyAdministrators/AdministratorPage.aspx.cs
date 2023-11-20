@@ -30,6 +30,7 @@ namespace NewAssignment4.MyAdministrators
             var result = from x in dbconn.Members
                          select new
                          {
+                             x.Member_UserID,
                              x.MemberFirstName,
                              x.MemberLastName,
                              x.MemberPhoneNumber,
@@ -45,7 +46,7 @@ namespace NewAssignment4.MyAdministrators
             dbconn = new KarateDataContext(conn);
             //LINQ
             var result = from x in dbconn.Instructors
-                         select new { x.InstructorFirstName, x.InstructorLastName };
+                         select new { x.InstructorID, x.InstructorFirstName, x.InstructorLastName };
             //Show data in gridview
             instructorGridView.DataSource = result;
             instructorGridView.DataBind();
@@ -53,70 +54,58 @@ namespace NewAssignment4.MyAdministrators
 
         protected void memberGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < memberGridView.DataKeys.Count)
+            int memberIdToDelete = (int)memberGridView.DataKeys[e.RowIndex].Value; // Retrieve the Member_UserID to delete
+
+            using (dbconn = new KarateDataContext(conn))
             {
-                int memberIdToDelete = Convert.ToInt32(memberGridView.DataKeys[e.RowIndex].Value); // Get the ID of the member to delete
+                var memberToDelete = dbconn.Members.FirstOrDefault(m => m.Member_UserID == memberIdToDelete);
 
-                using (dbconn = new KarateDataContext(conn))
+                if (memberToDelete != null)
                 {
-                    // Retrieve the Member and associated UserID
-                    var memberToDelete = dbconn.Members.FirstOrDefault(m => m.Member_UserID == memberIdToDelete);
+                    dbconn.Members.DeleteOnSubmit(memberToDelete);
+                    dbconn.SubmitChanges();
 
-                    if (memberToDelete != null)
+                    // Delete the associated NetUser using the retrieved UserID
+                    var userToDelete = dbconn.NetUsers.FirstOrDefault(u => u.UserID == memberIdToDelete);
+                    if (userToDelete != null)
                     {
-                        int userIdToDelete = memberToDelete.Member_UserID;
-
-                        dbconn.Members.DeleteOnSubmit(memberToDelete);
+                        dbconn.NetUsers.DeleteOnSubmit(userToDelete);
                         dbconn.SubmitChanges();
-
-                        // Delete the associated NetUser using the retrieved UserID
-                        var userToDelete = dbconn.NetUsers.FirstOrDefault(u => u.UserID == userIdToDelete);
-                        if (userToDelete != null)
-                        {
-                            dbconn.NetUsers.DeleteOnSubmit(userToDelete);
-                            dbconn.SubmitChanges();
-                        }
                     }
                 }
-
-                // Refresh the gridview
-                RefreshMembers();
             }
+
+            // Rebind the GridView to reflect the changes
+            memberGridView.EditIndex = -1; // Reset the edit index
+            RefreshMembers();
         }
 
         protected void instructorGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            // Check if the row index is within range before accessing DataKeys
-            if (e.RowIndex >= 0 && e.RowIndex < instructorGridView.DataKeys.Count)
+            int instructorIdToDelete = (int)instructorGridView.DataKeys[e.RowIndex].Value; // Retrieve the InstructorID to delete
+
+            using (dbconn = new KarateDataContext(conn))
             {
-                // Get the ID of the instructor to delete
-                int instructorIdToDelete = Convert.ToInt32(instructorGridView.DataKeys[e.RowIndex].Value);
+                var instructorToDelete = dbconn.Instructors.FirstOrDefault(i => i.InstructorID == instructorIdToDelete);
 
-                using (dbconn = new KarateDataContext(conn))
+                if (instructorToDelete != null)
                 {
-                    // Retrieve the Instructor and associated UserID
-                    var instructorToDelete = dbconn.Instructors.FirstOrDefault(i => i.InstructorID == instructorIdToDelete);
+                    dbconn.Instructors.DeleteOnSubmit(instructorToDelete);
+                    dbconn.SubmitChanges();
 
-                    if (instructorToDelete != null)
+                    // Delete the associated NetUser using the retrieved UserID
+                    var userToDelete = dbconn.NetUsers.FirstOrDefault(u => u.UserID == instructorIdToDelete);
+                    if (userToDelete != null)
                     {
-                        int userIdToDelete = instructorToDelete.InstructorID; // Assuming this is the UserID associated with the Instructor
-
-                        dbconn.Instructors.DeleteOnSubmit(instructorToDelete);
+                        dbconn.NetUsers.DeleteOnSubmit(userToDelete);
                         dbconn.SubmitChanges();
-
-                        // Delete the associated NetUser using the retrieved UserID
-                        var userToDelete = dbconn.NetUsers.FirstOrDefault(u => u.UserID == userIdToDelete);
-                        if (userToDelete != null)
-                        {
-                            dbconn.NetUsers.DeleteOnSubmit(userToDelete);
-                            dbconn.SubmitChanges();
-                        }
                     }
                 }
-
-                // Refresh the gridview
-                RefreshInstructors();
             }
+
+            // Rebind the GridView to reflect the changes
+            instructorGridView.EditIndex = -1; // Reset the edit index
+            RefreshInstructors();
         }
 
         protected void btnAddMember_Click(object sender, EventArgs e)
