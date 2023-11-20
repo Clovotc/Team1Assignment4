@@ -12,7 +12,7 @@ namespace NewAssignment4.MyMembers
     {
         KarateDataContext dbcon;
 
-        String conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Jack\\source\\repos\\Team1Assignment4\\NewAssignment4\\App_Data\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
+        String conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
         protected void Page_Load(object sender, EventArgs e)
         {
             RefreshData();

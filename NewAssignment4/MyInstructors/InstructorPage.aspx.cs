@@ -10,6 +10,10 @@ namespace NewAssignment4.MyInstructors
 {
     public partial class InstructorPage : System.Web.UI.Page
     {
+        KarateDataContext dbcon;
+
+        String conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session.Count != 0)
