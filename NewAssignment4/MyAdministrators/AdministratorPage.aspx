@@ -50,30 +50,39 @@
                 <td style="height: 220px; width: 440px">
                     <asp:Label ID="Label2" runat="server" Text="First Name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtFirstName" runat="server" Width="160px"></asp:TextBox>
+                    <asp:TextBox ID="txtMemberFirstName" runat="server" Width="160px"></asp:TextBox>
                     <br />
                     <asp:Label ID="Label3" runat="server" Text="Last Name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtLastName" runat="server" Width="160px"></asp:TextBox>
+                    <asp:TextBox ID="txtMemberLastName" runat="server" Width="160px"></asp:TextBox>
                     <br />
                     <asp:Label ID="Label4" runat="server" Text="Phone Number"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtPhoneNumber" runat="server" Width="160px"></asp:TextBox>
+                    <asp:TextBox ID="txtMemberPhoneNumber" runat="server" Width="160px"></asp:TextBox>
                     <br />
                     <asp:Label ID="Label5" runat="server" Text="Email"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtEmail" runat="server" Width="160px"></asp:TextBox>
+                    <asp:TextBox ID="txtMemberEmail" runat="server" Width="160px"></asp:TextBox>
                     <br />
                     <asp:Label ID="Label6" runat="server" Text="Date Joined"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtDateJoined" runat="server" Width="161px"></asp:TextBox>
+                    <asp:TextBox ID="txtMemberDateJoined" runat="server" Width="160px"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="Label7" runat="server" Text="User Name"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtMemberUserName" runat="server" Width="160px"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="Label8" runat="server" Text="Password"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtMemberPassword" runat="server" Width="160px"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Button ID="btnAddMember" runat="server" OnClick="btnAddMember_Click" Text="Add Member" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                <td style="height: 220px">
                     <asp:Button ID="btnAddInstructor" runat="server" OnClick="btnAddInstructor_Click" Text="Add Instructor" />
                 </td>
-                <td style="height: 220px"></td>
             </tr>
             <tr>
                 <td style="width: 78px; height: 105px">&nbsp;</td>

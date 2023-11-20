@@ -42,7 +42,8 @@ namespace NewAssignment4.MyAdministrators
         {
             dbconn = new KarateDataContext(conn);
             //LINQ
-            var result = from x in dbconn.Instructors select new { x.InstructorFirstName, x.InstructorLastName };
+            var result = from x in dbconn.Instructors 
+                         select new { x.InstructorFirstName, x.InstructorLastName };
             //Show data in gridview
             instructorGridView.DataSource = result;
             instructorGridView.DataBind();
@@ -60,19 +61,53 @@ namespace NewAssignment4.MyAdministrators
 
         protected void btnAddMember_Click(object sender, EventArgs e)
         {
-            string firstName = txtFirstName.Text.Trim();
-            string lastName = txtLastName.Text.Trim();
-            string phoneNumber = txtPhoneNumber.Text.Trim();
-            string email = txtEmail.Text.Trim();
-            string dateJoined = txtDateJoined.Text.Trim();
+            string firstName = txtMemberFirstName.Text.Trim();
+            string lastName = txtMemberLastName.Text.Trim();
+            string phoneNumber = txtMemberPhoneNumber.Text.Trim();
+            string email = txtMemberEmail.Text.Trim();
+            DateTime dateJoined = DateTime.Parse(txtMemberDateJoined.Text.Trim());
 
+            string userName = txtMemberUserName.Text.Trim();
+            string userPassword = txtMemberPassword.Text.Trim();
+
+            using (KarateDataContext dbconn = new KarateDataContext(conn))
+            {
+                // Create a new NetUser
+                NetUser newUser = new NetUser
+                {
+                    UserName = userName,
+                    UserPassword = userPassword,
+                    UserType = "member"
+                };
+
+                dbconn.NetUsers.InsertOnSubmit(newUser);
+                dbconn.SubmitChanges();
+
+                // Retrieve the UserID of the last inserted NetUser
+                int lastInsertedUserID = dbconn.NetUsers.OrderByDescending(u => u.UserID).FirstOrDefault()?.UserID ?? 0;
+
+                // Create a new Member
+                Member newMember = new Member
+                {
+                    Member_UserID = lastInsertedUserID, // Set Member_UserID to the last inserted UserID
+                    MemberFirstName = firstName,
+                    MemberLastName = lastName,
+                    MemberPhoneNumber = phoneNumber,
+                    MemberEmail = email,
+                    MemberDateJoined = dateJoined
+                };
+
+                // Add the new member to the database
+                dbconn.Members.InsertOnSubmit(newMember);
+                dbconn.SubmitChanges();
+            }
         }
 
         protected void btnAddInstructor_Click(object sender, EventArgs e)
         {
-            string firstName = txtFirstName.Text.Trim();
-            string lastName = txtLastName.Text.Trim();
-            string phoneNumber = txtPhoneNumber.Text.Trim();
+            string firstName = txtMemberFirstName.Text.Trim();
+            string lastName = txtMemberLastName.Text.Trim();
+            string phoneNumber = txtMemberPhoneNumber.Text.Trim();
 
         }
     }

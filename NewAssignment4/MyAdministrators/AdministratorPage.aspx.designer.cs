@@ -69,13 +69,13 @@ namespace NewAssignment4.MyAdministrators
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// txtFirstName control.
+        /// txtMemberFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberFirstName;
 
         /// <summary>
         /// Label3 control.
@@ -87,13 +87,13 @@ namespace NewAssignment4.MyAdministrators
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// txtLastName control.
+        /// txtMemberLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberLastName;
 
         /// <summary>
         /// Label4 control.
@@ -105,13 +105,13 @@ namespace NewAssignment4.MyAdministrators
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// txtPhoneNumber control.
+        /// txtMemberPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberPhoneNumber;
 
         /// <summary>
         /// Label5 control.
@@ -123,13 +123,13 @@ namespace NewAssignment4.MyAdministrators
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// txtEmail control.
+        /// txtMemberEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberEmail;
 
         /// <summary>
         /// Label6 control.
@@ -141,13 +141,49 @@ namespace NewAssignment4.MyAdministrators
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// txtDateJoined control.
+        /// txtMemberDateJoined control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateJoined;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberDateJoined;
+
+        /// <summary>
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
+
+        /// <summary>
+        /// txtMemberUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMemberUserName;
+
+        /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+
+        /// <summary>
+        /// txtMemberPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMemberPassword;
 
         /// <summary>
         /// btnAddMember control.
