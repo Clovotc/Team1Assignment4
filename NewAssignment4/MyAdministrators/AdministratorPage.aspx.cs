@@ -32,7 +32,8 @@ namespace NewAssignment4.MyAdministrators
                          { x.MemberFirstName, 
                            x.MemberLastName, 
                            x.MemberPhoneNumber, 
-                           x.MemberDateJoined };
+                           x.MemberDateJoined 
+                         };
             //Show data in gridview
             memberGridView.DataSource = result;
             memberGridView.DataBind();
@@ -61,6 +62,7 @@ namespace NewAssignment4.MyAdministrators
 
         protected void btnAddMember_Click(object sender, EventArgs e)
         {
+            // Retreive data from textboxes
             string firstName = txtMemberFirstName.Text.Trim();
             string lastName = txtMemberLastName.Text.Trim();
             string phoneNumber = txtMemberPhoneNumber.Text.Trim();
@@ -80,6 +82,7 @@ namespace NewAssignment4.MyAdministrators
                     UserType = "member"
                 };
 
+                // Add the new User to the database
                 dbconn.NetUsers.InsertOnSubmit(newUser);
                 dbconn.SubmitChanges();
 
@@ -97,18 +100,67 @@ namespace NewAssignment4.MyAdministrators
                     MemberDateJoined = dateJoined
                 };
 
-                // Add the new member to the database
+                // Add the new Member to the database
                 dbconn.Members.InsertOnSubmit(newMember);
                 dbconn.SubmitChanges();
             }
+            
+            // Clear textboxes
+            txtMemberFirstName.Text = "";
+            txtMemberLastName.Text = "";
+            txtMemberPhoneNumber.Text = "";
+            txtMemberEmail.Text = "";
+            txtMemberDateJoined.Text = "";
+            txtMemberUserName.Text = "";
+            txtMemberPassword.Text = "";
         }
 
         protected void btnAddInstructor_Click(object sender, EventArgs e)
         {
-            string firstName = txtMemberFirstName.Text.Trim();
-            string lastName = txtMemberLastName.Text.Trim();
-            string phoneNumber = txtMemberPhoneNumber.Text.Trim();
+            // Retreive data from textboxes
+            string firstName = txtInstructorFirstName.Text.Trim();
+            string lastName = txtInstructorLastName.Text.Trim();
+            string phoneNumber = txtInstructorPhoneNumber.Text.Trim();
 
+            string userName = txtInstructorUserName.Text.Trim();
+            string userPassword = txtInstructorPassword.Text.Trim();
+
+            using (KarateDataContext dbconn = new KarateDataContext(conn))
+            {
+                // Create a new NetUser
+                NetUser newUser = new NetUser
+                {
+                    UserName = userName,
+                    UserPassword = userPassword,
+                    UserType = "instructor"
+                };
+
+                dbconn.NetUsers.InsertOnSubmit(newUser);
+                dbconn.SubmitChanges();
+
+                // Retrieve the UserID of the last inserted NetUser
+                int lastInsertedUserID = dbconn.NetUsers.OrderByDescending(u => u.UserID).FirstOrDefault()?.UserID ?? 0;
+
+                // Create a new Instructor
+                Instructor newInstructor = new Instructor
+                {
+                    InstructorID = lastInsertedUserID, // Set InstructorID to the last inserted UserID
+                    InstructorFirstName = firstName,
+                    InstructorLastName = lastName,
+                    InstructorPhoneNumber = phoneNumber
+                };
+
+                // Add the new Instructor to the database
+                dbconn.Instructors.InsertOnSubmit(newInstructor);
+                dbconn.SubmitChanges();
+            }
+
+            // Clear textboxes
+            txtInstructorFirstName.Text = "";
+            txtInstructorLastName.Text = "";
+            txtInstructorPhoneNumber.Text = "";
+            txtInstructorUserName.Text = "";
+            txtInstructorPassword.Text = "";
         }
     }
 }
