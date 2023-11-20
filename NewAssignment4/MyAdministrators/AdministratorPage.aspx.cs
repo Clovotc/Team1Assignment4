@@ -50,14 +50,62 @@ namespace NewAssignment4.MyAdministrators
             instructorGridView.DataBind();
         }
 
-        protected void memberGridView_SelectedIndexChanged(object sender, EventArgs e)
+        protected void memberGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int memberIdToDelete = (int)memberGridView.DataKeys[e.RowIndex].Value; // Get the ID of the member to delete
 
+            using (dbconn = new KarateDataContext(conn))
+            {
+                // Retrieve the Member and associated UserID
+                var memberToDelete = dbconn.Members.FirstOrDefault(m => m.Member_UserID == memberIdToDelete);
+                int userIdToDelete = memberToDelete?.Member_UserID ?? 0;
+
+                if (memberToDelete != null)
+                {
+                    dbconn.Members.DeleteOnSubmit(memberToDelete);
+                    dbconn.SubmitChanges();
+
+                    // Delete the associated NetUser using the retrieved UserID
+                    var userToDelete = dbconn.NetUsers.FirstOrDefault(u => u.UserID == userIdToDelete);
+                    if (userToDelete != null)
+                    {
+                        dbconn.NetUsers.DeleteOnSubmit(userToDelete);
+                        dbconn.SubmitChanges();
+                    }
+                }
+            }
+
+            // Refresh the gridview
+            RefreshMembers();
         }
 
-        protected void instructorGridView_SelectedIndexChanged(object sender, EventArgs e)
+        protected void instructorGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int instructorIdToDelete = (int)instructorGridView.DataKeys[e.RowIndex].Value; // Get the ID of the instructor to delete
 
+            using (dbconn = new KarateDataContext(conn))
+            {
+                // Retrieve the Instructor and associated UserID
+                var instructorToDelete = dbconn.Instructors.FirstOrDefault(i => i.InstructorID == instructorIdToDelete);
+                int userIdToDelete = instructorToDelete?.InstructorID ?? 0;
+
+                if (instructorToDelete != null)
+                {
+                    dbconn.Instructors.DeleteOnSubmit(instructorToDelete);
+                    dbconn.SubmitChanges();
+
+                    // Delete the associated NetUser using the retrieved UserID
+                    var userToDelete = dbconn.NetUsers.FirstOrDefault(u => u.UserID == userIdToDelete);
+                    if (userToDelete != null)
+                    {
+                        dbconn.NetUsers.DeleteOnSubmit(userToDelete);
+                        dbconn.SubmitChanges();
+                    }
+                }
+            }
+
+            // Refresh the gridview
+            RefreshInstructors();
         }
 
         protected void btnAddMember_Click(object sender, EventArgs e)
