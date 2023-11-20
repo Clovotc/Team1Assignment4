@@ -161,6 +161,9 @@ namespace NewAssignment4.MyAdministrators
             txtMemberEmail.Text = "";
             txtMemberUserName.Text = "";
             txtMemberPassword.Text = "";
+
+            // Refresh Gridview
+            RefreshMembers();
         }
 
         protected void btnAddInstructor_Click(object sender, EventArgs e)
@@ -209,6 +212,9 @@ namespace NewAssignment4.MyAdministrators
             txtInstructorPhoneNumber.Text = "";
             txtInstructorUserName.Text = "";
             txtInstructorPassword.Text = "";
+
+            // Refresh Gridview
+            RefreshInstructors();
         }
 
         protected void btnAddSection_Click(object sender, EventArgs e)
