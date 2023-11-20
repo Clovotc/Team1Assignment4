@@ -131,6 +131,8 @@
                     <br />
                     <br />
                     <asp:Button ID="btnAddSection" runat="server" OnClick="btnAddSection_Click" Text="Add Section" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="lblSectionCreation" runat="server"></asp:Label>
                     </td>
                 <td style="height: 262px"></td>
             </tr>

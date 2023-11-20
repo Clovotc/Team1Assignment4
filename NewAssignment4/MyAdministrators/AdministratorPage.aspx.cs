@@ -236,8 +236,7 @@ namespace NewAssignment4.MyAdministrators
                 }
                 else
                 {
-                    txtMember.Text = "Member not found";
-                    txtInstructor.Text = "Instructor not found";
+                    lblSectionCreation.Text = "Could not find either member or instructor";
                     return;
                 }
 
@@ -254,6 +253,9 @@ namespace NewAssignment4.MyAdministrators
                 dbconn.Sections.InsertOnSubmit(newSection);
                 dbconn.SubmitChanges();
             }
+
+            // Inform user that the section was created
+            lblSectionCreation.Text = "Section has been created";
 
             // Clear textboxes
             sectionDropDown.ClearSelection();
