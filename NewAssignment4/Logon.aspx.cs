@@ -12,7 +12,7 @@ namespace NewAssignment4
     {
         //Connect to the database
         KarateDataContext dbcon;
-        string conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\Source\\Repos\\Clovotc\\Team1Assignment4\\NewAssignment4\\App_Data\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
+        string conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
 
         protected void Page_Load(object sender, EventArgs e) 
         {
