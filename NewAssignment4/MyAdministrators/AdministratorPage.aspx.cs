@@ -236,7 +236,9 @@ namespace NewAssignment4.MyAdministrators
                 }
                 else
                 {
-
+                    txtMember.Text = "Member not found";
+                    txtInstructor.Text = "Instructor not found";
+                    return;
                 }
 
                 Section newSection = new Section
