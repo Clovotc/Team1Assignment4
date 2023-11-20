@@ -218,7 +218,15 @@ namespace NewAssignment4.MyAdministrators
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ()
+            if (sectionDropDown.SelectedIndex == 0)
+            {
+                lblSectionPrice.Text = "$500";
+            }
+            
+            if (sectionDropDown.SelectedIndex == 1)
+            {
+                lblSectionPrice.Text = "$600";
+            }
         }
     }
 }
