@@ -27,12 +27,13 @@ namespace NewAssignment4.MyAdministrators
         {
             dbconn = new KarateDataContext(conn);
             //LINQ
-            var result = from x in dbconn.Members 
-                         select new 
-                         { x.MemberFirstName, 
-                           x.MemberLastName, 
-                           x.MemberPhoneNumber, 
-                           x.MemberDateJoined 
+            var result = from x in dbconn.Members
+                         select new
+                         {
+                             x.MemberFirstName,
+                             x.MemberLastName,
+                             x.MemberPhoneNumber,
+                             x.MemberDateJoined
                          };
             //Show data in gridview
             memberGridView.DataSource = result;
@@ -43,7 +44,7 @@ namespace NewAssignment4.MyAdministrators
         {
             dbconn = new KarateDataContext(conn);
             //LINQ
-            var result = from x in dbconn.Instructors 
+            var result = from x in dbconn.Instructors
                          select new { x.InstructorFirstName, x.InstructorLastName };
             //Show data in gridview
             instructorGridView.DataSource = result;
@@ -115,7 +116,7 @@ namespace NewAssignment4.MyAdministrators
             string lastName = txtMemberLastName.Text.Trim();
             string phoneNumber = txtMemberPhoneNumber.Text.Trim();
             string email = txtMemberEmail.Text.Trim();
-            DateTime dateJoined = DateTime.Parse(txtMemberDateJoined.Text.Trim());
+            DateTime dateJoined = DateTime.Now;
 
             string userName = txtMemberUserName.Text.Trim();
             string userPassword = txtMemberPassword.Text.Trim();
@@ -152,13 +153,12 @@ namespace NewAssignment4.MyAdministrators
                 dbconn.Members.InsertOnSubmit(newMember);
                 dbconn.SubmitChanges();
             }
-            
+
             // Clear textboxes
             txtMemberFirstName.Text = "";
             txtMemberLastName.Text = "";
             txtMemberPhoneNumber.Text = "";
             txtMemberEmail.Text = "";
-            txtMemberDateJoined.Text = "";
             txtMemberUserName.Text = "";
             txtMemberPassword.Text = "";
         }
@@ -213,16 +213,60 @@ namespace NewAssignment4.MyAdministrators
 
         protected void btnAddSection_Click(object sender, EventArgs e)
         {
+            // Retrieve data from textboxes
+            string sectionName = sectionDropDown.SelectedValue;
+            DateTime startDate = DateTime.Now;
+            string member = txtMember.Text.Trim();
+            string instructor = txtInstructor.Text.Trim();
+            decimal sectionPrice = Convert.ToDecimal((lblSectionPrice.Text).Replace("$", ""));
 
+            using (KarateDataContext dbconn = new KarateDataContext(conn))
+            {
+                // Find the id for both member and instructor
+                int memberUserId = 0;
+                int instructorUserId = 0;
+
+                var foundMember = dbconn.Members.FirstOrDefault(m => m.MemberFirstName == member);
+                var foundInstructor = dbconn.Instructors.FirstOrDefault(m => m.InstructorFirstName == instructor);
+
+                if (foundMember != null && foundInstructor != null)
+                {
+                    memberUserId = foundMember.Member_UserID;
+                    instructorUserId = foundInstructor.InstructorID;
+                }
+                else
+                {
+
+                }
+
+                Section newSection = new Section
+                {
+                    SectionName = sectionName,
+                    SectionStartDate = startDate,
+                    Member_ID = memberUserId,
+                    Instructor_ID = instructorUserId,
+                    SectionFee = sectionPrice
+                };
+
+                //Update Database
+                dbconn.Sections.InsertOnSubmit(newSection);
+                dbconn.SubmitChanges();
+            }
+
+            // Clear textboxes
+            sectionDropDown.ClearSelection();
+            txtMember.Text = "";
+            txtInstructor.Text = "";
+            lblSectionPrice.Text = "$0";
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void sectionDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (sectionDropDown.SelectedIndex == 0)
             {
                 lblSectionPrice.Text = "$500";
             }
-            
+
             if (sectionDropDown.SelectedIndex == 1)
             {
                 lblSectionPrice.Text = "$600";
